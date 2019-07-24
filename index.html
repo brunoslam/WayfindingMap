@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta http-equiv="X-UA-Compatible" content="ie=edge">
+	<title>Document</title>
+	<script src="https://code.jquery.com/jquery-1.9.1.min.js"
+		integrity="sha256-wS9gmOZBqsqWxgIVgA8Y9WcQOa7PgSIX+rPA0VL2rbQ=" crossorigin="anonymous"></script>
+	<script src="jquery.wayfinding.js"></script>
+</head>
+
+<body>
+
+	<script>
+		$(document).ready(function () {
+			
+
+
+			//
+			'use strict';
+			$('#myMaps').wayfinding({
+				'maps': [{
+					'path': 'SVGNuestrosParques-Floresta.svg',
+					'id': 'floor1'
+				}, ],
+				'path': {
+					width: 10,
+					color: '#FFFF00',
+					radius: 8,
+					speed: 1
+				},
+				'startpoint': function () {
+					return 'Entrada1';
+				},
+				'defaultMap': 'floor1',
+				'showLocation': false
+			}, function () {
+				console.log('callback reached');
+				//Cargar opciones en select
+				$("#Doors line").each((i, element) => {
+					$("#endSelect").append("<option value='" + $(element).prop("id") + "'>" + $(element).prop("id") + "</option>")
+				});
+			});
+
+			//make the floor buttons clickable
+			$('#controls button').click(function () {
+				$('#myMaps').wayfinding('currentMap', $(this).prop('id'));
+			});
+
+			$('#controls #beginSelect').change(function () {
+				$('#myMaps').wayfinding('startpoint', $(this).val());
+				if ($('#endSelect').val() !== '') {
+					$('#myMaps').wayfinding('routeTo', $('#endSelect').val());
+				}
+			});
+
+			$('#controls #endSelect').change(function () {
+				$('#myMaps').wayfinding('routeTo', $(this).val());
+			});
+
+			$('#controls #accessible').change(function () {
+				if ($('#accessible:checked').val() !== undefined) {
+					$('#myMaps').wayfinding('accessibleRoute', true);
+				} else {
+					$('#myMaps').wayfinding('accessibleRoute', false);
+				}
+				if ($('#endSelect').val() !== '') {
+					$('#myMaps').wayfinding('routeTo', $('#endSelect').val());
+				}
+			});
+
+			$('#myMaps').on('wayfinding:roomClicked', function (e, r) {
+				$('#endSelect option[value="' + r.roomId + '"]').attr('selected', true);
+			});
+
+		});
+	</script>
+	<div id="content">
+		<div id="myMaps">
+		</div>
+		<div id="controls">
+			<label>Show</label>
+			<button id="floor1">1st Floor</button>
+			<label for="beginSelect">Begin Route at</label>
+			<select id="beginSelect">
+				<option value="Entrada1">Entrada1</option>
+				<option value="Entrada2">Entrada2</option>
+			</select>
+			<label for="endSelect">Show Route to</label>
+			<select id="endSelect">
+				<option></option>
+				<option disabled="true">Floresta</option>
+				<!-- <option value="R307">307</option>
+					<option disabled="true">El prado</option>
+					<option value="R666">666</option>-->
+			</select>
+			<label for="accessible">Accessible</label>
+			<input id="accessible" type="checkbox" name="accessible" value="Accessible" />
+		</div>
+	</div>
+</body>
+
+</html>

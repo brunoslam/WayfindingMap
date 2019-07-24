@@ -1,0 +1,126 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Generator: Adobe Illustrator 23.0.0, SVG Export Plug-In . SVG Version: 6.00 Build 0)  -->
+<svg version="1.1" id="Capa_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+	 viewBox="0 0 600 480" style="enable-background:new 0 0 600 480;" xml:space="preserve">
+<style type="text/css">
+	.st0{fill:#F2F2F2;stroke:#000000;stroke-width:2;}
+	.st1{fill:#B3B3B3;stroke:#000000;}
+	.st2{fill:#C69C6D;stroke:#000000;}
+	.st3{fill:none;stroke:#000000;}
+	.st4{stroke:#000000;}
+	.st5{fill:none;stroke:#FF00FF;}
+	.st6{fill:none;stroke:#00FF00;}
+	.st7{fill:none;stroke:#00FFFF;}
+</style>
+<g id="Base">
+	<polygon id="Circulation" class="st0" points="72,77.4 531,77.4 531,410.4 324,410.4 324,428.4 279,428.4 279,410.4 72,410.4 	"/>
+	<rect id="Elevator" x="279" y="228" class="st1" width="45" height="36"/>
+	<polygon id="Reception" class="st2" points="288,345 291.9,345 291.9,349.5 311.1,349.5 311.1,345 315,345 315,354 288,354 	"/>
+	<g id="Stairs_1_">
+		<polygon id="Stairs" class="st1" points="324,318 306,318 306,282 297,282 297,318 279,318 279,264 324,264 		"/>
+		<line class="st3" x1="306" y1="309" x2="324" y2="309"/>
+		<line class="st3" x1="306" y1="300" x2="324" y2="300"/>
+		<line class="st3" x1="306" y1="291" x2="324" y2="291"/>
+		<line class="st3" x1="306" y1="282" x2="324" y2="282"/>
+		<polyline class="st4" points="288,273 288,309 283.5,300 292.5,300 288,309 		"/>
+	</g>
+</g>
+<g id="Portals">
+	<line id="Elev.1.floor2" class="st5" x1="297" y1="237" x2="315" y2="255"/>
+	<line id="Stair.1.floor2" class="st5" x1="297" y1="273" x2="288" y2="273"/>
+</g>
+<g id="Doors">
+	<line id="lobby" class="st6" x1="297" y1="408" x2="306" y2="417"/>
+	<line id="R121_1_" class="st6" x1="116.1" y1="139.8" x2="125.1" y2="148.8"/>
+	<line id="R122_2_" class="st6" x1="207" y1="120" x2="198" y2="129"/>
+	<line id="R123_4_" class="st6" x1="270" y1="120" x2="279" y2="129"/>
+	<line id="R123_3_" class="st6" x1="270" y1="174" x2="279" y2="165"/>
+	<line id="R123_2_" class="st6" x1="333" y1="120" x2="324" y2="129"/>
+	<line id="R123_1_" class="st6" x1="333" y1="174" x2="324" y2="165"/>
+	<line id="R104_1_" class="st6" x1="243" y1="327" x2="234" y2="318"/>
+	<line id="R103_1_" class="st6" x1="243" y1="255" x2="234" y2="246"/>
+	<line id="R112_1_" class="st6" x1="360" y1="273" x2="369" y2="282"/>
+	<line id="R111_1_" class="st6" x1="360" y1="345" x2="369" y2="354"/>
+	<line id="R102_1_" class="st6" x1="117" y1="273" x2="126" y2="282"/>
+	<line id="R101_1_" class="st6" x1="117" y1="345" x2="126" y2="354"/>
+	<line id="R113_1_" class="st6" x1="486" y1="255" x2="477" y2="246"/>
+	<line id="R114_1_" class="st6" x1="486" y1="327" x2="477" y2="318"/>
+	<line id="R666_1_" class="st6" x1="486" y1="133" x2="0" y2="0"/>
+	<line id="R126_1_" class="st6" x1="486" y1="138" x2="477" y2="129"/>
+	<line id="R124_1_" class="st6" x1="378" y1="120" x2="369" y2="129"/>
+	<line id="lcd.1" class="st6" x1="297" y1="354" x2="288" y2="363"/>
+</g>
+<g id="Paths">
+	<path class="st6" d="M0,0"/>
+	<circle cx="100" cy="10" r="3"/>
+	<path d="M154,60h-9l5,8L154,60"/>
+	<path d="M150,60"/>
+	<line class="st7" x1="297" y1="273" x2="315" y2="273"/>
+	<line class="st7" x1="342" y1="264" x2="342" y2="336"/>
+	<line class="st7" x1="261" y1="336" x2="261" y2="264"/>
+	<line class="st7" x1="261" y1="264" x2="243" y2="255"/>
+	<line class="st7" x1="297" y1="408" x2="297" y2="381"/>
+	<line class="st7" x1="297" y1="381" x2="261" y2="381"/>
+	<line class="st7" x1="99" y1="336" x2="99" y2="381"/>
+	<line class="st7" x1="99" y1="381" x2="261" y2="381"/>
+	<line class="st7" x1="261" y1="381" x2="261" y2="336"/>
+	<line class="st7" x1="297" y1="354" x2="297" y2="381"/>
+	<line class="st7" x1="333" y1="174" x2="333" y2="120"/>
+	<line class="st7" x1="333" y1="120" x2="342" y2="102"/>
+	<line class="st7" x1="261" y1="336" x2="243" y2="327"/>
+	<line class="st7" x1="342" y1="336" x2="360" y2="345"/>
+	<line class="st7" x1="342" y1="264" x2="360" y2="273"/>
+	<line class="st7" x1="342" y1="192" x2="261" y2="192"/>
+	<line class="st7" x1="261" y1="192" x2="270" y2="174"/>
+	<line class="st7" x1="342" y1="192" x2="333" y2="174"/>
+	<line class="st7" x1="297" y1="237" x2="297" y2="219"/>
+	<line class="st7" x1="297" y1="219" x2="261" y2="219"/>
+	<line class="st7" x1="261" y1="219" x2="261" y2="264"/>
+	<line class="st7" x1="297" y1="219" x2="342" y2="219"/>
+	<line class="st7" x1="342" y1="219" x2="342" y2="264"/>
+	<line class="st7" x1="342" y1="336" x2="315" y2="336"/>
+	<line class="st7" x1="261" y1="336" x2="315" y2="336"/>
+	<line class="st7" x1="315" y1="273" x2="315" y2="336"/>
+	<line class="st7" x1="261" y1="192" x2="261" y2="219"/>
+	<line class="st7" x1="342" y1="192" x2="342" y2="219"/>
+	<line class="st7" x1="99" y1="264" x2="99" y2="336"/>
+	<line class="st7" x1="99" y1="336" x2="117" y2="345"/>
+	<line class="st7" x1="99" y1="264" x2="117" y2="273"/>
+	<line class="st7" x1="99" y1="147" x2="99" y2="192"/>
+	<line class="st7" x1="99" y1="132" x2="116.6" y2="140.4"/>
+	<line class="st7" x1="99" y1="192" x2="261" y2="219"/>
+	<line class="st7" x1="99" y1="264" x2="99" y2="219"/>
+	<line class="st7" x1="99" y1="219" x2="261" y2="192"/>
+	<line class="st7" x1="99" y1="192" x2="99" y2="219"/>
+	<line class="st7" x1="342" y1="102" x2="261" y2="102"/>
+	<line class="st7" x1="261" y1="102" x2="270" y2="120"/>
+	<line class="st7" x1="261" y1="102" x2="216" y2="102"/>
+	<line id="_x32_" class="st7" x1="216" y1="102" x2="207" y2="120"/>
+	<line id="_x31_" class="st7" x1="188.6" y1="102" x2="180.5" y2="119.8"/>
+	<line class="st7" x1="216" y1="102" x2="99" y2="102"/>
+	<line class="st7" x1="99" y1="102" x2="99" y2="147"/>
+	<line class="st7" x1="261" y1="192" x2="99" y2="192"/>
+	<line class="st7" x1="99" y1="219" x2="261" y2="219"/>
+	<line class="st7" x1="342" y1="102" x2="387" y2="102"/>
+	<line class="st7" x1="387" y1="102" x2="378" y2="120"/>
+	<line class="st7" x1="387" y1="102" x2="504" y2="102"/>
+	<line class="st7" x1="504" y1="102" x2="504" y2="147"/>
+	<line class="st7" x1="504" y1="147" x2="486" y2="138"/>
+	<line id="666" class="st7" x1="504" y1="147" x2="486" y2="133"/>
+	<line class="st7" x1="504" y1="147" x2="504" y2="192"/>
+	<line class="st7" x1="504" y1="192" x2="342" y2="192"/>
+	<line class="st7" x1="342" y1="219" x2="504" y2="219"/>
+	<line class="st7" x1="504" y1="219" x2="504" y2="192"/>
+	<line class="st7" x1="504" y1="219" x2="342" y2="192"/>
+	<line class="st7" x1="342" y1="219" x2="504" y2="192"/>
+	<line class="st7" x1="504" y1="219" x2="504" y2="264"/>
+	<line class="st7" x1="504" y1="264" x2="486" y2="255"/>
+	<line class="st7" x1="504" y1="264" x2="504" y2="336"/>
+	<line class="st7" x1="504" y1="336" x2="486" y2="327"/>
+	<line class="st7" x1="504" y1="336" x2="504" y2="381"/>
+	<line class="st7" x1="504" y1="381" x2="342" y2="381"/>
+	<line class="st7" x1="342" y1="381" x2="342" y2="336"/>
+	<line class="st7" x1="342" y1="381" x2="297" y2="381"/>
+</g>
+<path class="st7" d="M231.9,102.1c-2.1,5.4-4.2,10.8-6.3,16.1"/>
+</svg>
