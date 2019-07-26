@@ -40,7 +40,7 @@
 				console.log('callback reached');
 				//Cargar opciones en select
 				$("#Doors line").each((i, element) => {
-					$("#endSelect").append("<option value='" + $(element).prop("id") + "'>" + $(element).prop("id") + "</option>")
+					$("#beginSelect, #endSelect").append("<option value='" + $(element).prop("id") + "'>" + $(element).prop("id") + "</option>")
 				});
 			});
 
@@ -85,13 +85,13 @@
 			<button id="floor1">1st Floor</button>
 			<label for="beginSelect">Begin Route at</label>
 			<select id="beginSelect">
-				<option value="Entrada1">Entrada1</option>
-				<option value="Entrada2">Entrada2</option>
+				<option></option>
+				<option disabled="true">El Prado</option>
 			</select>
 			<label for="endSelect">Show Route to</label>
 			<select id="endSelect">
 				<option></option>
-				<option disabled="true">Floresta</option>
+				<option disabled="true">El Prado</option>
 				<!-- <option value="R307">307</option>
 					<option disabled="true">El prado</option>
 					<option value="R666">666</option>-->

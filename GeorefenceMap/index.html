@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        body {
+            margin: 0;
+            position: fixed;
+            top: 0;
+            right: 0;
+            bottom: 0;
+            left: 0;
+        }
+
+        #map {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+        }
+
+        .marker svg {
+            width: 100%;
+            height: 100%;
+        }
+
+        .markerSvg {
+            cursor: pointer;
+        }
+
+        .marker {
+            pointer-events: none;
+            background-image: url('mapbox-icon.png');
+            background-size: cover;
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            cursor: pointer;
+            z-index: 1;
+            position: absolute;
+        }
+    </style>
+    <script src="https://code.jquery.com/jquery-1.9.1.min.js"
+        integrity="sha256-wS9gmOZBqsqWxgIVgA8Y9WcQOa7PgSIX+rPA0VL2rbQ=" crossorigin="anonymous"></script>
+    <script src="jquery.wayfinding.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/snap.svg/0.5.1/snap.svg-min.js"></script>
+    <script src="https://api.tiles.mapbox.com/mapbox-gl-js/v0.53.1/mapbox-gl.js"></script>
+</head>
+
+<body>
+    <div id="map"></div>
+    <script>
+        $(document).ready(function () {
+            //
+            $('#myMaps').wayfinding({
+                'maps': [{
+                    'path': 'SVGNuestrosParques-ElPradoTest.svg',
+                    'id': 'floor1'
+                }, ],
+                'path': {
+                    width: 10,
+                    color: 'blue',
+                    radius: 8,
+                    speed: 0
+                },
+                'startpoint': function () {
+                    return 'Entrada2';
+                },
+                'defaultMap': 'floor1',
+                'showLocation': false
+            }, function () {
+
+                $('#myMaps').wayfinding('routeTo', "R666");
+                console.log('callback reached');
+                //Cargar opciones en select
+                /**********************************************************/
+                /****                                                  ****/
+                /****                                                  ****/
+                /****              THINGS TO CHANGE                    ****/
+                center = [-0.1099169667957085, 51.51168978882151];
+                center = [-70.55778, -33.55449];
+
+                zoomLevelOnStart = 16;
+                geoReferenceWidthInMeters = 1600;
+                geoReferenceHeightInMeters = 1200;
+                imageURL =
+                    "https://upload.wikimedia.org/wikipedia/commons/3/30/Vector-based_example.svg";
+                imageURL = "SVGNuestrosParques-ElPradoTest.svg";
+                /****                                                  ****/
+                /**********************************************************/
+
+                mapboxgl.accessToken =
+                    "pk.eyJ1IjoiYTEwayIsImEiOiJjaWdyMmVrazcwMXpsdTZtMThscWtiOTJtIn0.-A76dzJ0vsKULJdDxGvVXg";
+
+                var map = new mapboxgl.Map({
+                    container: "map",
+                    style: "mapbox://styles/mapbox/light-v10",
+                    pitchWithRotate: false,
+
+                    center: center,
+                    zoom: zoomLevelOnStart
+                });
+
+                var svgContainer;
+                var markerContainer = document.createElement("div");
+                markerContainer.className = "markerSvg";
+
+                Snap.load(imageURL, function (f) {
+                    f = $('#myMaps').find("svg")[0];
+                    Snap(markerContainer).append(f);
+                    svgContainer = f.node;
+                    new mapboxgl.Marker(markerContainer).setLngLat(center).addTo(map);
+                });
+
+                function getScale(n, m) {
+                    var center = map.getCenter();
+                    var zoom = map.getZoom();
+                    var tmp =
+                        156543.03392 * Math.cos(center.lat * Math.PI / 180) / Math.pow(2, zoom);
+                    var meterSizeInPixelN = n / tmp;
+                    var meterSizeInPixelM = m / tmp;
+                    return [meterSizeInPixelN, meterSizeInPixelM];
+                }
+
+                function render() {
+                    var pixelSizes = getScale(
+                        geoReferenceWidthInMeters,
+                        geoReferenceHeightInMeters
+                    );
+                    markerContainer.style.width = pixelSizes[0] + "px";
+                    markerContainer.style.height = pixelSizes[1] + "px";
+                    //svgContainer && (svgContainer.style.transform = "rotate(" + -map.getBearing() + "deg)");
+                }
+                map.rotateTo(350)
+                // re-render our visualization whenever the view changes
+                map.on("viewreset", render);
+                map.on("zoom", render);
+                map.on("drag", render);
+                map.on("rotate", render);
+                render();
+
+                var el = document.createElement('div');
+                el.className = 'marker';
+
+                new mapboxgl.Marker(el)
+                    .setLngLat([-70.55778, -33.55449])
+                    .addTo(map);
+                //Disable rotation only for codepen demo, setting the style transform is also commented in render, this seems to be very slow in codepen embed. in general it works fine though..
+                // disable map rotation using right click + drag
+                map.dragRotate.disable();
+                // disable map rotation using touch rotation gesture
+                map.touchZoomRotate.disableRotation();
+            });
+
+            //make the floor buttons clickable
+            $('#controls button').click(function () {
+                $('#myMaps').wayfinding('currentMap', $(this).prop('id'));
+            });
+
+            $('#controls #beginSelect').change(function () {
+                $('#myMaps').wayfinding('startpoint', $(this).val());
+                if ($('#endSelect').val() !== '') {
+                    $('#myMaps').wayfinding('routeTo', $('#endSelect').val());
+                }
+            });
+
+            $('#controls #endSelect').change(function () {
+                $('#myMaps').wayfinding('routeTo', $(this).val());
+            });
+
+            $('#controls #accessible').change(function () {
+                if ($('#accessible:checked').val() !== undefined) {
+                    $('#myMaps').wayfinding('accessibleRoute', true);
+                } else {
+                    $('#myMaps').wayfinding('accessibleRoute', false);
+                }
+                if ($('#endSelect').val() !== '') {
+                    $('#myMaps').wayfinding('routeTo', $('#endSelect').val());
+                }
+            });
+
+            $('#myMaps').on('wayfinding:roomClicked', function (e, r) {
+                $('#endSelect option[value="' + r.roomId + '"]').attr('selected', true);
+            });
+
+        });
+    </script>
+
+    <div id="content">
+        <div id="myMaps" style="display: none;">
+        </div>
+        <div id="controls">
+            <label>Show</label>
+            <button id="floor1">1st Floor</button>
+            <label for="beginSelect">Begin Route at</label>
+            <select id="beginSelect">
+                <option></option>
+                <option disabled="true">El Prado</option>
+            </select>
+            <label for="endSelect">Show Route to</label>
+            <select id="endSelect">
+                <option></option>
+                <option disabled="true">El Prado</option>
+                <!-- <option value="R307">307</option>
+					<option disabled="true">El prado</option>
+					<option value="R666">666</option>-->
+            </select>
+            <label for="accessible">Accessible</label>
+            <input id="accessible" type="checkbox" name="accessible" value="Accessible" />
+        </div>
+    </div>
+</body>
+
+</html>
