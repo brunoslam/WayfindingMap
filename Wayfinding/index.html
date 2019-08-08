@@ -16,15 +16,20 @@
 	<script>
 		$(document).ready(function () {
 			
-
+			var mapaSeleccionado = 'mapas/el_prado_LS.svg';
+			//var mapaSeleccionado = 'mapas/canaan_LS.svg';
+		 var mapaSeleccionado = 'mapas/el_manantial_LS.svg';
+			// var mapaSeleccionado = 'mapas/la_foresta_LS.svg';
+			// var mapaSeleccionado = 'mapas/santiago_LS.svg';
 
 			//
 			'use strict';
 			$('#myMaps').wayfinding({
 				'maps': [{
-					'path': 'El_prado_LS.svg',
+					'path': mapaSeleccionado,
 					'id': 'floor1'
 				}, ],
+				//Acá pueden cambiar la configuración del trazo generado :3 
 				'path': {
 					width: 10,
 					color: 'blue',
@@ -44,7 +49,7 @@
 				});
 			});
 
-			//make the floor buttons clickable
+			//
 			$('#controls button').click(function () {
 				$('#myMaps').wayfinding('currentMap', $(this).prop('id'));
 			});
@@ -81,22 +86,18 @@
 		<div id="myMaps">
 		</div>
 		<div id="controls">
-			<label>Show</label>
-			<button id="floor1">1st Floor</button>
-			<label for="beginSelect">Begin Route at</label>
+			<label for="beginSelect">Ruta desde</label>
 			<select id="beginSelect">
 				<option></option>
 				<option disabled="true">El Prado</option>
 			</select>
-			<label for="endSelect">Show Route to</label>
+			<label for="endSelect">Ruta hasta</label>
 			<select id="endSelect">
-				<option></option>
-				<option disabled="true">El Prado</option>
 				<!-- <option value="R307">307</option>
 					<option disabled="true">El prado</option>
 					<option value="R666">666</option>-->
 			</select>
-			<label for="accessible">Accessible</label>
+			<label for="accessible">Accesible</label>
 			<input id="accessible" type="checkbox" name="accessible" value="Accessible" />
 		</div>
 	</div>
