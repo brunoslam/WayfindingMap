@@ -1,0 +1,49 @@
+#map {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+}
+
+.marker svg {
+    width: 100%;
+    height: 100%;
+}
+
+.markerSvg {
+    cursor: pointer;
+}
+
+.marker {
+    pointer-events: none;
+    
+    background-size: cover;
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    cursor: pointer;
+    z-index: 1;
+    position: absolute;
+}
+.markerInicio{
+    background-image: url('../img/iconos/iconEstaAqui.svg');
+}
+.markerTumba{
+    background-image: url('../img/iconos/buscar_fallecidos.svg');
+    width: 31px;
+    height: 22px;
+    border-radius: 0;
+}
+
+.mapboxgl-control-container {
+    display: none;
+}
+
+canvas.mapboxgl-canvas {
+    left: 0;
+}
+svg{
+    opacity: 0.7;
+}
+.box_mapa{
+    height: 450px !important;
+}
