@@ -21,7 +21,7 @@
  */
 
 //  <![CDATA[
-
+var arrErrores = [];
 (function ($) {
 	'use strict';
 
@@ -562,7 +562,6 @@
 						}
 					}
 					for (doorBNum = 0; doorBNum < dataStore.p[mapNum][pathNum].e.length; doorBNum++) {
-						console.log(dataStore.p[mapNum][pathNum].e)
 						if (dataStore.p[mapNum][pathNum].e[doorBNum] === door) {
 							doorPaths.paths.push(pathNum); // only pushing pathNum because starting on a single floor
 							doorPaths.floor = dataStore.p[mapNum][pathNum].floor;
@@ -1283,6 +1282,7 @@
 
 					if(solution.length === 0) {
 						console.warn('Attempting to route with no solution. This should never happen. SVG likely has errors. Destination is: ' + destination);
+						arrErrores.push(destination);
 						return;
 					}
 
@@ -1763,6 +1763,6 @@
 
 		return this;
 	};
-}(jQuery));
+}($));
 
 //  ]]>

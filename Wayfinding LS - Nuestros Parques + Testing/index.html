@@ -15,12 +15,12 @@
 
 	<script>
 		$(document).ready(function () {
-			
+
 			var mapaSeleccionado = 'mapas/el_prado_LS.svg';
 			//var mapaSeleccionado = 'mapas/canaan_LS.svg';
-		 var mapaSeleccionado = 'mapas/el_manantial_LS.svg';
+			var mapaSeleccionado = 'mapas/el_manantial_LS.svg';
 			// var mapaSeleccionado = 'mapas/la_foresta_LS.svg';
-			// var mapaSeleccionado = 'mapas/santiago_LS.svg';
+			 var mapaSeleccionado = 'mapas/santiago_LS.svg';
 
 			//
 			'use strict';
@@ -45,10 +45,32 @@
 				console.log('callback reached');
 				//Cargar opciones en select
 				$("#Doors line").each((i, element) => {
-					$("#beginSelect, #endSelect").append("<option value='" + $(element).prop("id") + "'>" + $(element).prop("id") + "</option>")
+					$("#beginSelect, #endSelect").append("<option data-i='"+ i +"' value='" + $(element).prop("id") +
+						"'>" + $(element).prop("id") + "</option>")
 				});
 			});
+			$("#btnProbar").click((e) => {
+				e.preventDefault();
+				/*$('#controls #endSelect  option').each((i, elem) => {
 
+				})*/
+				var tiempoPorTest = 200;
+				var refreshIntervalId = setInterval(() => {
+					$('#controls #endSelect').val($('#controls #endSelect option[data-i="'+ (parseInt($('#controls #endSelect option:selected').attr("data-i")) +1) +'"]').val()).trigger("change");
+				}, tiempoPorTest)
+
+				setTimeout(()=>{
+					clearInterval(refreshIntervalId);
+					if(arrErrores.length == 0){
+						alert("Mapa en perfecto estado o puede que falten puertas :o")
+					}else{
+						alert("Los siguientes caminos presentan errores: " + arrErrores);
+					}
+					
+					arrErrores = [];
+					$('#controls #endSelect').val('Entrada');
+				}, $('#controls #endSelect option').length * tiempoPorTest);
+			});
 			//
 			$('#controls button').click(function () {
 				$('#myMaps').wayfinding('currentMap', $(this).prop('id'));
@@ -99,6 +121,7 @@
 			</select>
 			<label for="accessible">Accesible</label>
 			<input id="accessible" type="checkbox" name="accessible" value="Accessible" />
+			<button type="button" id="btnProbar">Probar</button>
 		</div>
 	</div>
 </body>
