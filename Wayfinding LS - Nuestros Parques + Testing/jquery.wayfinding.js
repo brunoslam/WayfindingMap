@@ -380,9 +380,9 @@ var arrErrores = [];
 				doorId = $(this).attr('id');
 
 				$.each(dataStore.p[mapNum], function (index, segment) {
-					if (map.id === segment.floor && ((segment.x === x1 && segment.y === y1) || (segment.x === x2 && segment.y === y2))) {
+					if (map.id === segment.floor && ((segment.x === x1 && segment.y === y1) )) {
 						segment.d.push(doorId);
-					} else if (map.id === segment.floor && ((segment.m === x1 && segment.n === y1) || (segment.m === x2 && segment.n === y2))) {
+					} else if (map.id === segment.floor && ((segment.m === x1 && segment.n === y1) )) {
 						segment.e.push(doorId);
 					}
 				});
